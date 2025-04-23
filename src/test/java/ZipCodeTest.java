@@ -4,7 +4,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class ZipCodeTest {
@@ -17,9 +16,7 @@ public class ZipCodeTest {
         browser.get("https://www.sharelane.com/cgi-bin/register.py");
         browser.findElement(By.name("zip_code")).sendKeys("1234");
         browser.findElement(By.cssSelector("[value=Continue]")).click();
-// <span class="error_message">Oops, error on page. ZIP code should have 5 digits</span>
-        String actualErrorMessage = browser.findElement(By.className("Oops, error on page. ZIP code should have " +
-                "5 digits")).getText();
+        String actualErrorMessage = browser.findElement(By.className("error_message")).getText();
         Assert.assertEquals(actualErrorMessage, "Oops, error on page. ZIP code should have 5 digits");
         browser.quit();
     }
