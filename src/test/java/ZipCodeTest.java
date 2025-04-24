@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 public class ZipCodeTest {
 
     @Test
-    public void checkZipCode4Digits(){
+    public void checkZipCode4Digits() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver browser = new ChromeDriver();
-        browser.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
+        browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         browser.get("https://www.sharelane.com/cgi-bin/register.py");
         browser.findElement(By.name("zip_code")).sendKeys("1234");
         browser.findElement(By.cssSelector("[value=Continue]")).click();
@@ -23,10 +23,10 @@ public class ZipCodeTest {
 
 
     @Test
-    public void checkZipCode5Digits(){
+    public void checkZipCode5Digits() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver browser = new ChromeDriver();
-        browser.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
+        browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         browser.get("https://www.sharelane.com/cgi-bin/register.py");
         browser.findElement(By.name("zip_code")).sendKeys("12345");
         browser.findElement(By.cssSelector("[value=Continue]")).click();

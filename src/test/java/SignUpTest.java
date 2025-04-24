@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 public class SignUpTest {
 
     @Test
-    public void checkSignUpValidData(){
+    public void checkSignUpValidData() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver browser = new ChromeDriver();
-        browser.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
+        browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         browser.get("https://www.sharelane.com/cgi-bin/register.py");
         browser.findElement(By.name("zip_code")).sendKeys("12345");
         browser.findElement(By.cssSelector("[value=Continue]")).click();
@@ -27,5 +27,5 @@ public class SignUpTest {
         String successMessage = browser.findElement(By.className("confirmation_message")).getText();
         Assert.assertEquals(successMessage, "Account is created!");
         browser.quit();
-        }
     }
+}
